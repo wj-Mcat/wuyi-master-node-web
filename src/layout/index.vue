@@ -1,11 +1,7 @@
 <template>
   <div :class="classObj" class="app-wrapper">
-    <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
-    <sidebar class="sidebar-container" />
     <div class="main-container">
-      <div :class="{'fixed-header':fixedHeader}">
-        <navbar />
-      </div>
+      <div class="wuyi-header">DFS监控系统</div>
       <app-main />
     </div>
   </div>
@@ -64,6 +60,9 @@ export default {
       top: 0;
     }
   }
+  .app-wrapper .main-container{
+    margin-left: 0px !important; 
+  }
   .drawer-bg {
     background: #000;
     opacity: 0.3;
@@ -72,6 +71,14 @@ export default {
     height: 100%;
     position: absolute;
     z-index: 999;
+  }
+  .wuyi-header{
+    width: 100%; height: 80px;
+    line-height: 80px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    box-shadow: 0 10px 10px rgb(230,230,230);
   }
 
   .fixed-header {

@@ -76,7 +76,27 @@ export default {
       $this.summary = data.summary
     })
     this.option.tooltip.formatter = function(data) {
-      debugger
+        var time = data[0]['axisValue']
+        var html = '<p>' + time + '</p><table class="table b-table table-striped table-hover table-sm">'
+        html+='<thead><th><td>DataNodeName</td> <td>CpuCore</td> <td>dfs_used</td> <td>freeMem</td> <td>mem_prop</td> <td>totalMem</td> <td>pid</td></thead>'
+        html+= '<tbody>'
+        for(var i=0; i< data.length; i++) {
+          var dataIndex = data[i]['dataIndex']
+          var seriesIndex = data[i]['seriesIndex']
+          html += '<tr>'
+          var metadata = $this.option.series[seriesIndex].metadata[dataIndex]
+          html+="<td></td>"
+          html+="<td>" + metadata.host + "</td>"
+          html+="<td>" + metadata.cpu_core + "</td>"
+          html+="<td>" + metadata.dfs_used + "</td>"
+          html+="<td>" + metadata.freeMem + "</td>"
+          html+="<td>" + metadata.mem_prop + "</td>"
+          html+="<td>" + metadata.totalMem + "</td>"
+          html+="<td>" + metadata.pid + "</td>"
+          html+="</tr>"
+        }
+        html += "</tbody></table>"
+        return html
     }
   }
 }
