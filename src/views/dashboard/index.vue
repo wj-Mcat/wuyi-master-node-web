@@ -1,11 +1,15 @@
 <template>
   <div class="dashboard-container">
-    <v-chart :options="option" />
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    代码参考地址：https://echarts.apache.org/examples/en/editor.html?c=line-stack
+    <el-row>
+        <el-col :span="24">
+          <el-card class="box-card">
+            <div slot="header" style="width: 100%;" class="clearfix">
+              <span>Hadop分布式系统</span>
+            </div>
+            <v-chart :options="option" style="width: 100%"  id='chart'/>
+          </el-card>
+        </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -35,8 +39,6 @@ export default {
     let $this = this;
     axios.get('http://127.0.0.1:5000/all_status').then(function(data){
       data = data.data.data
-      debugger
-
       $this.option.legend.data = data.nodes
       $this.option.series = data.series
       $this.option.xAxis.data = data.time_lines
@@ -54,6 +56,9 @@ export default {
   &-text {
     font-size: 30px;
     line-height: 46px;
+  }
+  .echarts, .echarts>div, .echarts > canvas{
+    width: 100% !important;
   }
 }
 </style>
