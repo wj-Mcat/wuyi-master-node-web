@@ -1,6 +1,6 @@
 export const option = {
     title: {
-        text: '折线图堆叠'
+        text: '1212'
     },
     tooltip: {
         trigger: 'axis'
@@ -13,11 +13,6 @@ export const option = {
         right: '4%',
         bottom: '3%',
         containLabel: true
-    },
-    toolbox: {
-        feature: {
-            saveAsImage: {}
-        }
     },
     xAxis: {
         type: 'category',

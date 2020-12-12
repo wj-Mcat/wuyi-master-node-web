@@ -35,9 +35,12 @@ export default {
     let $this = this;
     axios.get('http://127.0.0.1:5000/all_status').then(function(data){
       data = data.data.data
-      $this.option.legend.data = data.legend
+      debugger
+
+      $this.option.legend.data = data.nodes
       $this.option.series = data.series
-      $this.option.xAxis.data = data.time
+      $this.option.xAxis.data = data.time_lines
+      console.log($this.option)
     })
   }
 }
