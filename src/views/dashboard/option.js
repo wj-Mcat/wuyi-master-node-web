@@ -3,7 +3,7 @@ export const option = {
         text: '1212'
     },
     tooltip: {
-        trigger: 'axis'
+        trigger: 'axis',
     },
     legend: {
         data: []
@@ -17,7 +17,7 @@ export const option = {
     toolbox: {
         feature: {
             saveAsImage: {}
-        }
+        },
     },
     xAxis: {
         type: 'category',

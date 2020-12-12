@@ -23,6 +23,17 @@ import 'echarts/lib/chart/bar'
 import 'echarts/lib/component/tooltip'
 
 
+// register bootstrap
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+// Install BootstrapVue
+Vue.use(BootstrapVue)
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin)
+
+
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api

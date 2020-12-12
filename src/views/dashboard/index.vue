@@ -8,6 +8,35 @@
             </div>
             <v-chart :options="option" style="width: 100%"  id='chart'/>
           </el-card>
+          <el-card style="margin-top: 30px;">
+            <div slot="header" style="width: 100%;" class="clearfix">
+              <span>信息统计</span>
+            </div>
+            <table class="table b-table table-striped table-hover">
+              <tbody>
+                <tr>
+                  <td>块大小</td>
+                  <td>{{summary.dfs_blk_size}}KB</td>
+                </tr>
+                <tr>
+                  <td>DataNode端口号</td>
+                  <td>{{summary.data_node_port}}</td>
+                </tr>
+                <tr>
+                  <td>NameNode端口号</td>
+                  <td>{{summary.name_node_port}}</td>
+                </tr>
+                <tr>
+                  <td>Host列表</td>
+                  <td>{{summary.host_list}}</td>
+                </tr>
+                <tr>
+                  <td>DFS冗余数</td>
+                  <td>{{summary.dfs_replication}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </el-card>
         </el-col>
     </el-row>
   </div>
@@ -32,7 +61,8 @@ export default {
   }, 
   data() {
     return {
-      option: option
+      option: option,
+      summary: {},
     }
   },
   mounted() {
@@ -43,7 +73,11 @@ export default {
       $this.option.series = data.series
       $this.option.xAxis.data = data.time_lines
       console.log($this.option)
+      $this.summary = data.summary
     })
+    this.option.tooltip.formatter = function(data) {
+      debugger
+    }
   }
 }
 </script>
